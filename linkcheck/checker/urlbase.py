@@ -414,7 +414,8 @@ class UrlBase:
         url information self.base_url, self.parent_url and self.base_ref.
         """
         # norm base url - can raise UnicodeError from url.idna_encode()
-        base_url, is_idn = url_norm(self.base_url, self.encoding)
+        base_url, is_idn = url_norm(self.base_url, self.encoding) ## this normalisation is breaking URLs with url_encoding in GET parameters
+        base_url = self.base_url
         # make url absolute
         if self.base_ref:
             # use base reference as parent url

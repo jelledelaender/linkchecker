@@ -120,7 +120,7 @@ class CSVLogger(_Logger):
         if self.has_part("column") and url_data.column is not None:
             row.append(url_data.column)
         if self.has_part("name"):
-            row.append(url_data.name)
+            row.append(url_data.name.replace("\r\n", " ").replace("\n", " "))
         if self.has_part("dltime"):
             row.append(url_data.dltime)
         if self.has_part("dlsize"):
